@@ -177,3 +177,5 @@ __pycache__/
  b913bf5 (Initial commit - Trove AI Agent Framework)
 .env
 config/config.yaml
+.env
+config/config.yaml
