@@ -1,6 +1,6 @@
 # 🚀 Trove AI Agent Framework
 
-Trove is a customizable AI Agent framework that allows users to build and integrate AI agents powered by OpenAI's GPT models and Hugging Face transformers. It simplifies the development of intelligent agents for various tasks.
+Trove is a customizable AI Agent framework that simplifies the development of intelligent agents for various tasks leveraging large language models (LLMs), various tools, and long-term memory systems.
 
 ---
 
