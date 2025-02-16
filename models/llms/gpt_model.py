@@ -1,21 +1,30 @@
-import openai
 import os
-from utils.config import OPENAI_API_KEY
+import openai
+from transformers import pipeline
+from utils.config import CONFIG
 
-class GPTModel:
-    def __init__(self, model_name="gpt-4o-mini", temperature=0.1):
-        self.client = openai.OpenAI(api_key=OPENAI_API_KEY)
-        self.model_name = model_name
-        self.temperature = temperature
+class AIModel:
+    def __init__(self, model_type="openai"):
+        self.model_type = model_type
+
+        if self.model_type == "openai":
+            self.api_key = CONFIG.get("openai")["api_key"]
+            self.client = openai.OpenAI(api_key=self.api_key)
+        elif self.model_type == "huggingface":
+            self.model_name = CONFIG.get("huggingface")["model_name"]
+            self.generator = pipeline("text-generation", model=self.model_name)
+        else:
+            raise ValueError("Unsupported model type!")
 
     def generate_response(self, prompt):
-        try:
-            response = self.client.Completion.create(
-                model=self.model_name,
-                prompt=prompt,
-                temperature=self.temperature
+        if self.model_type == "openai":
+            response = self.client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "system", "content": "You are a financial assistant."},{"role": "user", "content": prompt}],
+    temperature=0.1
             )
-            return response['choices'][0]['text'].strip()
-        except Exception as e:
-            print(f"❌ Error generating response: {e}")
-            return None
+            return response.choices[0].message.content.strip()
+        elif self.model_type == "huggingface":
+            return self.generator(prompt, max_length=50)[0]["generated_text"]
+        else:
+            return "❌ Invalid model type"
