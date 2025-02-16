@@ -16,4 +16,3 @@ class Config:
         return self.config.get(key)
 
 CONFIG = Config()
-
