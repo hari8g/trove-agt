@@ -1,0 +1,6 @@
+openai:
+  api_key: "YOUR_OPENAI_API_KEY"  # Do NOT hardcode the actual key
+  model_name: "gpt-4o-mini"
+
+huggingface:
+  model_name: "distilgpt2"
