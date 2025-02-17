@@ -1,8 +1,8 @@
-# 🚀 Trove Dynamic Agent - AI-Powered Task Execution Framework
+# 🚀 Trove Dynamic Agent - multi-agent colloboration framework for efficient reasoning and task execution
 
 ## 📌 Introduction
 
-Trove Dynamic Agent is an **AI-powered framework** that allows users to create **domain-specific AI agents** capable of performing various tasks dynamically. This system enables real-time AI assistance across different domains by providing structured, well-defined responses based on a **Meta-System Prompt Framework**.
+Trove Dynamic Agent is an **AI-powered framework** that allows users to create **domain-specific multi-AI agents** capable of performing various tasks dynamically. This system enables real-time AI assistance across different domains by providing structured, well-defined responses based on a **Meta-System Prompt Framework**.
 
 ### **Key Capabilities:**
 ✅ **Create AI Agents on the fly** for **finance, healthcare, education, and more**.
@@ -15,11 +15,10 @@ Trove Dynamic Agent is an **AI-powered framework** that allows users to create *
 ## 🚀 Features
 
 ✔️ **Dynamic AI Agent Creation**: Instantly generates agents based on user-defined domains and tasks.
-✔️ **Meta-System Prompting**: Uses structured AI prompt engineering for precise task execution.
+✔️ **Meta-System Prompting**: Uses pre-defined structured AI prompt engineering for precise task execution.
 ✔️ **OpenAI GPT-4o Support**: Leverages powerful **GPT-4o** for highly accurate AI responses.
 ✔️ **Customizable Responses**: Format responses in a **clear, readable, structured way**.
 ✔️ **Fully Extensible**: Developers can create new agents for different use cases.
-✔️ **No Dependency on External Frameworks**: Uses a **local `Agent` implementation**, replacing `swarms`.
 
 ---
 
@@ -27,7 +26,7 @@ Trove Dynamic Agent is an **AI-powered framework** that allows users to create *
 
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/trove-agt.git
+git clone https://github.com/hari8g/trove-agt.git
 cd trove-agt
 ```
 
