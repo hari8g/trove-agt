@@ -28,28 +28,34 @@ First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/YOUR_USERNAME/trove-agt.git
 cd trove-agt
+
 2️⃣ Set Up Virtual Environment
 Create and activate a virtual environment to manage dependencies:
 
 python3 -m venv venv
 source venv/bin/activate  # On macOS/Linux
 venv\Scripts\activate     # On Windows
+
 3️⃣ Install Dependencies
 Install the required dependencies using requirements.txt:
 
 pip install -r requirements.txt
+
 4️⃣ Set Up OpenAI API Key
 Create a .env file in the root directory and add your OpenAI API key:
 
 touch .env
 echo "OPENAI_API_KEY=your_api_key_here" >> .env
+
 Or manually edit .env:
 
 OPENAI_API_KEY=your_api_key_here
+
 5️⃣ Verify Installation
 Ensure that everything is installed correctly by running:
 
 python -c "import openai; print(openai.__version__)"
+
 If OpenAI is installed, it should print a version number.
 
 📌 Usage Guide
@@ -58,6 +64,7 @@ If OpenAI is installed, it should print a version number.
 To create and run a custom AI agent, use the following command:
 
 python scripts/run_dynamic_agent.py --domain financial --task "Analyze stock market trends for 2024 and provide investment insights." --query "What are the top 3 stocks for 2024?"
+
 2️⃣ Example Output
 📜 **AI Response**
 ═══════════════════════════════════════════════
@@ -67,6 +74,7 @@ python scripts/run_dynamic_agent.py --domain financial --task "Analyze stock mar
 3️⃣ **NVIDIA (NVDA)** - Growth: 18% YoY, AI chip dominance.
 ✅ **Recommendation:** Diversify across stable and growth stocks.
 ═══════════════════════════════════════════════
+
 3️⃣ Customizing the AI Agent
 Modify the command by changing:
 
@@ -76,6 +84,7 @@ Modify the command by changing:
 Example for Healthcare AI Agent:
 
 python scripts/run_dynamic_agent.py --domain healthcare --task "Analyze medical research trends for 2024." --query "What are the latest breakthroughs in cancer treatment?"
+
 🔹 How Trove Dynamic Agent Works
 
 1️⃣ Meta-System Prompt Framework
@@ -100,6 +109,7 @@ elif self.domain == "legal":
 Run it:
 
 python scripts/run_dynamic_agent.py --domain legal --task "Analyze tech law trends." --query "What are the major AI regulations in 2024?"
+
 📌 Contributing
 
 🔹 We welcome contributions!
@@ -136,17 +146,3 @@ Feel free to use, modify, and contribute! 🚀
 🎉 Congratulations! You now have a fully functional AI-powered agent that dynamically adapts to user needs.
 
 🚀 Start building with Trove Dynamic Agent today! 🚀
-
-
----
-
-### **📌 Summary of the README**
-✅ **Detailed Introduction to Trove Dynamic Agent**  
-✅ **Step-by-Step Installation Guide**  
-✅ **Usage Instructions with Examples**  
-✅ **Technical Breakdown of How It Works**  
-✅ **Instructions for Extending the Framework**  
-✅ **Contributing & Troubleshooting Section**  
-✅ **Future Enhancements & License Information**  
-
-This **README.md** makes it easy for **new users** to install, use, and contribute to your **AI-powered agent framework**! 🚀
