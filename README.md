@@ -1,25 +1,25 @@
 # 🚀 Trove Dynamic Agent - AI-Powered Task Execution Framework
 
-## 🔹 Introduction
+## 📌 Introduction
 
-Trove Dynamic Agent is an AI-powered framework that allows users to create domain-specific AI agents capable of performing various tasks dynamically. This system enables real-time AI assistance across different domains by providing structured, well-defined responses based on a **Meta-System Prompt Framework**.
+Trove Dynamic Agent is an **AI-powered framework** that allows users to create **domain-specific AI agents** capable of performing various tasks dynamically. This system enables real-time AI assistance across different domains by providing structured, well-defined responses based on a **Meta-System Prompt Framework**.
 
-With **Trove Dynamic Agent**, users can:
-- ✅ **Create AI Agents on the fly** for **finance, healthcare, education, and more**.
-- ✅ **Define tasks dynamically** by specifying **what the agent should do**.
-- ✅ **Interact with AI agents in a human-like, professional manner**.
-- ✅ **Get structured, clear, and well-explained responses**.
+### **Key Capabilities:**
+✅ **Create AI Agents on the fly** for **finance, healthcare, education, and more**.
+✅ **Define tasks dynamically** by specifying **what the agent should do**.
+✅ **Interact with AI agents in a human-like, professional manner**.
+✅ **Get structured, clear, and well-explained responses**.
 
 ---
 
 ## 🚀 Features
 
-- ✔️ **Dynamic AI Agent Creation**: Instantly generates agents based on user-defined domains and tasks.
-- ✔️ **Meta-System Prompting**: Uses structured AI prompt engineering for precise task execution.
-- ✔️ **OpenAI GPT-4o Support**: Leverages powerful **GPT-4o** for highly accurate AI responses.
-- ✔️ **Customizable Responses**: Format responses in a **clear, readable, structured way**.
-- ✔️ **Fully Extensible**: Developers can create new agents for different use cases.
-- ✔️ **No Dependency on External Frameworks**: Uses a **local `Agent` implementation**, replacing `swarms`.
+✔️ **Dynamic AI Agent Creation**: Instantly generates agents based on user-defined domains and tasks.
+✔️ **Meta-System Prompting**: Uses structured AI prompt engineering for precise task execution.
+✔️ **OpenAI GPT-4o Support**: Leverages powerful **GPT-4o** for highly accurate AI responses.
+✔️ **Customizable Responses**: Format responses in a **clear, readable, structured way**.
+✔️ **Fully Extensible**: Developers can create new agents for different use cases.
+✔️ **No Dependency on External Frameworks**: Uses a **local `Agent` implementation**, replacing `swarms`.
 
 ---
 
@@ -66,20 +66,49 @@ If OpenAI is installed, it should print a version number.
 
 ### **1️⃣ Run a Dynamic Agent**
 ```bash
-python scripts/run_dynamic_agent.py --domain financial --task "Analyze stock market trends for 2024 and provide investment insights." --query "What are the top 3 stocks for 2024?"
+python scripts/run_dynamic_agent.py --domain financial --task "Analyze stock market trends for 2025 in India and provide investment insights." --query "What are the top 3 stocks to buy in India in 2025?"
 ```
 
 ### **2️⃣ Example Output**
-```
-🐜 **AI Response**
-══════════════════════════════════════
-📊 **Investment Analysis for 2024:**
-1️⃣ **Apple (AAPL)** - Growth: 12% YoY, driven by AI and cloud expansion.
-2️⃣ **Tesla (TSLA)** - Growth: 15% YoY, strong EV market share increase.
-3️⃣ **NVIDIA (NVDA)** - Growth: 18% YoY, AI chip dominance.
-✅ **Recommendation:** Diversify across stable and growth stocks.
-══════════════════════════════════════
-```
+📜 **AI Response**
+═══════════════════════════════════════════════
+To identify the top stocks to buy in India in 2025, we need to consider several
+factors, including economic trends, sector performance, and company
+fundamentals. While I can't predict specific stock prices, I can provide
+insights into sectors and companies that may present growth opportunities based
+on current trends and projections.
+
+### **1️⃣ Information Technology (IT) Sector**
+- **Company to Watch: Tata Consultancy Services (TCS)**  
+  - **Rationale**: The IT sector in India has been a consistent performer, driven by
+global demand for digital transformation services. TCS, as a leader in this
+space, benefits from its strong client base, robust financials, and continuous
+innovation in AI and cloud services.  
+  - **Risk Assessment**: Currency fluctuations and global economic slowdowns could impact revenue. However, the
+sector's resilience and adaptability to new technologies mitigate some risks.
+
+### **2️⃣ Renewable Energy Sector**
+- **Company to Watch: Adani Green Energy**  
+  - **Rationale**: With India's commitment to increasing its renewable energy
+capacity, companies like Adani Green Energy are well-positioned to benefit from
+government incentives and growing demand for sustainable energy solutions.  
+  - **Risk Assessment**: Regulatory changes and project execution risks are potential challenges. However, the
+long-term growth trajectory remains positive due to the global shift towards clean energy.
+
+### **3️⃣ Consumer Goods Sector**
+- **Company to Watch: Hindustan Unilever Limited (HUL)**  
+  - **Rationale**: As a leader in the FMCG sector, HUL is poised to benefit from India's growing middle
+class and increasing consumer spending. The company's strong brand portfolio and
+distribution network provide a competitive edge.  
+  - **Risk Assessment**: Inflationary pressures and changes in consumer preferences could impact margins.
+Nonetheless, HUL's ability to adapt its product offerings and pricing strategies
+helps mitigate these risks.
+
+### **Actionable Insights for Investors:**
+- **Diversification**: Consider diversifying across these sectors to balance potential risks and rewards.
+- **Long-term Perspective**: Focus on long-term growth potential rather than short-term market fluctuations.
+- **Stay Informed**: Keep abreast of economic policies, technological advancements, and sector-specific developments that could impact these companies.
+═══════════════════════════════════════════════
 
 ---
 
@@ -93,7 +122,7 @@ elif self.domain == "legal":
 ```
 Run it:
 ```bash
-python scripts/run_dynamic_agent.py --domain legal --task "Analyze tech law trends." --query "What are the major AI regulations in 2024?"
+python scripts/run_dynamic_agent.py --domain legal --task "Analyze tech law trends." --query "What are the major AI regulations in 2025?"
 ```
 
 ---
@@ -101,10 +130,10 @@ python scripts/run_dynamic_agent.py --domain legal --task "Analyze tech law tren
 ## 📌 Contributing
 
 🔹 **We welcome contributions!**
-1. **Fork the repo** and create a new branch.
-2. **Make your changes** and test thoroughly.
-3. **Submit a pull request (PR).**
-4. **We will review & merge your changes!** 🚀
+1️⃣ **Fork the repo** and create a new branch.
+2️⃣ **Make your changes** and test thoroughly.
+3️⃣ **Submit a pull request (PR).**
+4️⃣ **We will review & merge your changes!** 🚀
 
 ---
 
