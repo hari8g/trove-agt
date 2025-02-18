@@ -208,6 +208,193 @@ The PDF report is saved in the same folder as `energy_assistant.py`:
 energy_report.pdf
 ```
 
+# 2.Introduction to Mixture of Agents (MOA)**
+
+The **Mixture of Agents (MOA)** architecture enhances Trove Agent's capabilities by distributing tasks across multiple agents, ensuring **scalability, depth, and efficiency**.
+
+---
+
+## **What is Mixture of Agents (MOA)?**
+MOA is an advanced AI orchestration method where **multiple intelligent agents** work together to solve **complex problems**.
+
+### **Why Use MOA?**
+- **Improves Accuracy:** Each agent specializes in a specific task.
+- **Enhances Scalability:** Workload is distributed across multiple agents.
+- **Ensures Depth:** Each agent provides detailed insights.
+- **Automates Decision Making:** AI agents handle specific tasks autonomously.
+
+### **MOA in Action: Tesla Financial Analysis**
+We use the **MOA approach** to conduct a **comprehensive financial analysis** of **Tesla (TSLA)** by distributing the task across three specialized agents:
+1. **Financial Statement Analysis Agent**  
+   - Examines Tesla’s **revenue, profit, and cash flow**.
+   - Compares Tesla's performance with **Ford and GM**.
+  
+2. **Risk Assessment Specialist**  
+   - Analyzes Tesla’s **financial stability, market risks, and regulatory risks**.
+  
+3. **Business Strategy Evaluator**  
+   - Studies **Tesla’s expansion strategy, competitive positioning, and innovation**.
+
+After **each agent completes its task**, the results are **aggregated into a structured report**.
+
+---
+
+## **Tesla Financial Analysis Example (MOA Framework)**
+
+### **Script Overview**
+The following script demonstrates how **MOA is applied** to analyze **Tesla’s financial health, risks, and strategy**.
+
+```python
+import openai
+import json
+import os
+import sys
+import logging
+import requests
+from fpdf import FPDF
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Fetch API keys
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+FMP_API_KEY = os.getenv("FMP_API_KEY")
+
+# Ensure API keys are available
+if not OPENAI_API_KEY or not FMP_API_KEY:
+    logging.error("API Keys missing. Please set OPENAI_API_KEY and FMP_API_KEY in your .env file.")
+    exit(1)
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.info("API Keys loaded successfully.")
+
+# Fetch financial data from FMP API
+company_name = "Tesla"
+api_url = f"https://financialmodelingprep.com/api/v3/income-statement/TSLA?apikey={FMP_API_KEY}"
+
+try:
+    response = requests.get(api_url, timeout=10)
+    response.raise_for_status()
+    financial_data = response.json()
+    logging.info("Successfully retrieved financial data.")
+except requests.exceptions.RequestException as e:
+    logging.error(f"Error fetching financial data: {e}")
+    exit(1)
+
+# Extract key metrics
+if isinstance(financial_data, list) and len(financial_data) > 0:
+    latest_financials = financial_data[0]
+else:
+    logging.error("No valid financial data found.")
+    exit(1)
+
+revenue = latest_financials.get("revenue", "Data Unavailable")
+net_profit = latest_financials.get("netIncome", "Data Unavailable")
+debt_equity_ratio = latest_financials.get("totalDebt", 0) / max(latest_financials.get("totalEquity", 1), 1)
+cash_flow = latest_financials.get("operatingCashFlow", "Data Unavailable")
+
+# Define Agent Classes
+class TroveAgent:
+    def __init__(self, agent_name, task_description):
+        self.agent_name = agent_name
+        self.task_description = task_description
+
+    def execute_task(self):
+        logging.info(f"{self.agent_name} executing task...")
+        # Simulate AI processing with OpenAI API
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are an expert financial analyst."},
+                {"role": "user", "content": self.task_description}
+            ],
+            temperature=0.7
+        )
+        logging.info(f"{self.agent_name} completed task.")
+        return response["choices"][0]["message"]["content"]
+
+# Instantiate Agents
+financial_agent = TroveAgent(
+    "Financial Statement Analysis",
+    f"""
+    Analyze Tesla's latest financial statements. Provide insights on:
+    - Revenue growth trends
+    - Profitability analysis
+    - Debt and liquidity position
+    - Comparison with key competitors (Ford, GM)
+    """
+)
+
+risk_agent = TroveAgent(
+    "Risk Assessment Specialist",
+    f"""
+    Assess Tesla’s financial and market risks:
+    - Debt levels and financial stability
+    - Market volatility and macroeconomic conditions
+    - Regulatory risks and policy changes
+    """
+)
+
+strategy_agent = TroveAgent(
+    "Business Strategy Evaluator",
+    f"""
+    Evaluate Tesla’s business strategy:
+    - Innovation in EV technology and battery research
+    - Expansion into global markets and new factories
+    - Competitive positioning against other EV companies
+    """
+)
+
+# Execute Agents' Tasks
+financial_analysis = financial_agent.execute_task()
+risk_analysis = risk_agent.execute_task()
+strategy_analysis = strategy_agent.execute_task()
+
+# Compile Report
+final_analysis_report = f"""
+Tesla Financial Analysis Report
+
+Financial Statement Analysis
+{financial_analysis}
+
+Risk Assessment
+{risk_analysis}
+
+Business Strategy Evaluation
+{strategy_analysis}
+"""
+
+logging.info("Final MOA Analysis Report Generated.")
+
+def generate_pdf_report(report_text):
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+    pdf.set_font("Arial", "", 12)
+    pdf.cell(200, 10, "Tesla Financial Analysis Report", new_x="LMARGIN", new_y="NEXT", align="C")
+    pdf.ln(10)
+    pdf.multi_cell(0, 10, report_text)
+    pdf.output("reports/tesla_financial_analysis.pdf")
+    logging.info("Report saved as 'reports/tesla_financial_analysis.pdf'")
+
+generate_pdf_report(final_analysis_report)
+```
+
+---
+
+## **How to Run This Script**
+1. **Ensure API keys are set** in the `.env` file.
+2. **Run the script**:
+   ```bash
+   python multi_agent.py
+   ```
+3. **View the report**:
+   - The final report will be saved as:
+     ```
+     reports/tesla_financial_analysis.pdf
+     ```
+
 ---
 ## Contribution Guidelines
 To contribute:
